@@ -1,0 +1,15 @@
+{
+  "name": "cyberpunk-portfolio",
+  "version": "1.0.0",
+  "description": "Um portfólio futurista com estética cyberpunk, repleto de efeitos neon, animações de glitch e interatividade avançada.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0"
+  }
+}

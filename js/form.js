@@ -96,7 +96,7 @@ class ContactForm {
     return isValid;
   }
   
-  handleSubmit() {
+  async handleSubmit() {
     if (!this.validateForm()) {
       this.showStatus('Por favor, preencha todos os campos corretamente.', 'error');
       return;
@@ -108,24 +108,47 @@ class ContactForm {
     submitBtn.querySelector('span').textContent = 'ENVIANDO...';
     submitBtn.disabled = true;
     
-    // Simular envio (em produção, aqui seria uma chamada AJAX)
-    setTimeout(() => {
-      this.showStatus('Mensagem enviada com sucesso! Retornarei em breve.', 'success');
-      this.form.reset();
+    // Coletar dados do formulário
+    const formData = new FormData(this.form);
+    const messageData = {
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+    
+    try {
+      // Aguardar o Supabase estar pronto
+      if (!window.supabaseReady) {
+        await new Promise((resolve) => {
+          window.addEventListener('supabaseReady', resolve, { once: true });
+        });
+      }
       
-      // Resetar inputs
-      this.inputs.forEach(input => {
-        input.style.borderColor = '';
-        input.style.boxShadow = '';
-      });
+      // Usar a função global do Supabase
+      const result = await window.saveContactMessage(messageData);
       
+      if (result.success) {
+        this.showStatus('Mensagem enviada com sucesso! Retornarei em breve.', 'success');
+        this.form.reset();
+        
+        // Resetar inputs
+        this.inputs.forEach(input => {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+        });
+        
+        // Efeito de glitch no sucesso
+        this.triggerSuccessGlitch();
+      } else {
+        throw new Error(result.error);
+      }
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
+      this.showStatus('Erro ao enviar mensagem. Tente novamente.', 'error');
+    } finally {
       // Resetar botão
       submitBtn.querySelector('span').textContent = originalText;
       submitBtn.disabled = false;
-      
-      // Efeito de glitch no sucesso
-      this.triggerSuccessGlitch();
-    }, 2000);
+    }
   }
   
   showStatus(message, type) {
