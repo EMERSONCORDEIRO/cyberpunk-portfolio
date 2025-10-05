@@ -1,0 +1,99 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neonGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="neonGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#0000ff;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#00ff00;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Grid Background -->
+  <g opacity="0.2">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#00ffff" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#00ffff" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#00ffff" stroke-width="0.5"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#00ffff" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="#00ffff" stroke-width="0.5"/>
+    <line x1="0" y1="600" x2="1200" y2="600" stroke="#00ffff" stroke-width="0.5"/>
+    <line x1="0" y1="700" x2="1200" y2="700" stroke="#00ffff" stroke-width="0.5"/>
+    
+    <line x1="100" y1="0" x2="100" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="500" y1="0" x2="500" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="800" stroke="#ff00ff" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="800" y1="0" x2="800" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="900" y1="0" x2="900" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="1000" y1="0" x2="1000" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+    <line x1="1100" y1="0" x2="1100" y2="800" stroke="#ff00ff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Circuit Patterns -->
+  <g filter="url(#glow)" opacity="0.6">
+    <!-- Left Circuit -->
+    <path d="M 50 200 L 150 200 L 150 250 L 200 250" stroke="#00ffff" stroke-width="2" fill="none"/>
+    <circle cx="50" cy="200" r="4" fill="#00ffff"/>
+    <circle cx="150" cy="200" r="4" fill="#00ffff"/>
+    <circle cx="150" cy="250" r="4" fill="#00ffff"/>
+    <circle cx="200" cy="250" r="6" fill="#00ffff"/>
+    
+    <path d="M 80 300 L 180 300 L 180 400 L 250 400" stroke="#ff00ff" stroke-width="2" fill="none"/>
+    <circle cx="80" cy="300" r="4" fill="#ff00ff"/>
+    <circle cx="180" cy="300" r="4" fill="#ff00ff"/>
+    <circle cx="180" cy="400" r="6" fill="#ff00ff"/>
+    
+    <!-- Right Circuit -->
+    <path d="M 1150 150 L 1050 150 L 1050 200 L 1000 200" stroke="#00ff00" stroke-width="2" fill="none"/>
+    <circle cx="1150" cy="150" r="4" fill="#00ff00"/>
+    <circle cx="1050" cy="150" r="4" fill="#00ff00"/>
+    <circle cx="1050" cy="200" r="4" fill="#00ff00"/>
+    <circle cx="1000" cy="200" r="6" fill="#00ff00"/>
+    
+    <path d="M 1100 350 L 1000 350 L 1000 450 L 950 450" stroke="#ff00ff" stroke-width="2" fill="none"/>
+    <circle cx="1100" cy="350" r="4" fill="#ff00ff"/>
+    <circle cx="1000" cy="350" r="4" fill="#ff00ff"/>
+    <circle cx="1000" cy="450" r="6" fill="#ff00ff"/>
+  </g>
+  
+  <!-- Geometric Shapes -->
+  <g opacity="0.4">
+    <polygon points="100,600 150,550 200,600 150,650" stroke="url(#neonGradient1)" stroke-width="2" fill="none" filter="url(#glow)"/>
+    <polygon points="1000,100 1080,100 1120,160 1080,220 1000,220 960,160" stroke="url(#neonGradient2)" stroke-width="2" fill="none" filter="url(#glow)"/>
+    <rect x="300" y="600" width="80" height="80" stroke="#00ffff" stroke-width="2" fill="none" opacity="0.5" filter="url(#glow)"/>
+    <circle cx="900" cy="650" r="40" stroke="#ff00ff" stroke-width="2" fill="none" opacity="0.5" filter="url(#glow)"/>
+  </g>
+  
+  <!-- Glitch Lines -->
+  <g opacity="0.3">
+    <line x1="400" y1="100" x2="800" y2="100" stroke="#ff00ff" stroke-width="1"/>
+    <line x1="405" y1="102" x2="795" y2="102" stroke="#00ffff" stroke-width="1"/>
+    <line x1="410" y1="98" x2="790" y2="98" stroke="#00ff00" stroke-width="1"/>
+    
+    <line x1="300" y1="500" x2="600" y2="500" stroke="#00ffff" stroke-width="1"/>
+    <line x1="305" y1="502" x2="595" y2="502" stroke="#ff00ff" stroke-width="1"/>
+  </g>
+  
+  <!-- Scanning Lines -->
+  <g opacity="0.15">
+    <rect x="0" y="200" width="1200" height="2" fill="#00ffff">
+      <animate attributeName="y" from="-10" to="810" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="400" width="1200" height="1" fill="#ff00ff">
+      <animate attributeName="y" from="-10" to="810" dur="6s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
